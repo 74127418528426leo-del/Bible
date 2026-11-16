@@ -158,7 +158,7 @@ jobs:
             status="$(curl --silent --show-error --location --max-time 15 \
               --output "$RUNNER_TEMP/live-page.html" \
               --write-out '%{http_code}' "$LIVE_SITE_URL" || true)"
-            if [[ "$status" == "200" ]] && grep -qi '(KJV|King James|Bible)' "$RUNNER_TEMP/live-page.html"; then
+            if [[ "$status" == "200" ]] && grep -Eqi '(KJV|King James|Bible)' "$RUNNER_TEMP/live-page.html"; then
               echo "http_status=$status" >> "$GITHUB_OUTPUT"
               echo "Live page returned HTTP 200 and the expected Bible marker (attempt $attempt)."
               exit 0
