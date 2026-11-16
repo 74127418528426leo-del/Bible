@@ -1,0 +1,9 @@
+{
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "void-style": "warn",
+    "aria-label-misuse": "warn",
+    "no-redundant-for": "warn",
+    "element-permitted-content": "warn"
+  }
+}
